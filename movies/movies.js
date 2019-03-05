@@ -21,7 +21,11 @@ class Movies {
     }
 
     set genre(newGenre) {
-        this._genre = newGenre;
+        if (Object.values(Movies.genres).includes(newGenre)) {
+            this._genre = newGenre;
+        } else {
+            console.log(`Invalid genre: ${newGenre} (keeping ${this._genre})`);
+        }
     }
 
     get genre() {
@@ -29,7 +33,11 @@ class Movies {
     }
 
     set year(newYear) {
-        this._year = newYear;
+        if (typeof newYear === "number" && newYear >= this._year) {
+            this._year = newYear;
+        } else {
+            console.log(`Invalid year: ${newYear} (keeping ${this._year})`);
+        }
     }
 
     get year() {

@@ -1,17 +1,24 @@
 const Movie = require("./movies");
 
-let forrestGump = new Movie("Forrest Gump", Movie.genres.DRAMA, 1994);
-console.log(forrestGump);
-console.log(`The ${forrestGump.genre} movie "${forrestGump.title}" was released in ${forrestGump.year}.\n`);
+console.log(`
+Creating Hangover...`);
 
-let blackPanther = Movie.createActionMovie("Black Panther", 2018);
-console.log(blackPanther);
-console.log(`The ${blackPanther.genre} movie "${blackPanther.title}" was released in ${blackPanther.year}.`);
+let hangover = new Movie("Hangover", Movie.genres.COMEDY, 2009);
 
+console.log(hangover);
+console.log(`
+Changing Hangover to Hangover II...`);
+hangover.title = "Hangover II";
+hangover.year = 2011;
 
+console.log(hangover);
+console.log(`
+Changing Hangover II to Hangover III (fails due to invalid values)...`);
 
-// let newTitle = "asdasd";
+hangover.title = 3;
+hangover.genre = "mystery";
+hangover.year = 1700;
 
-// console.log(typeof newTitle);
+console.log(hangover);
 
 console.log(`\nNumber of Movies: ${Movie.counter}`);
